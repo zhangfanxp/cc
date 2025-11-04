@@ -77,12 +77,16 @@ b、写入下面的代码(根据ubuntu实际用户名修改下面三处your_user
 
 [Unit]
 Description=Image Deduplicator Service
+
 After=network.target
 
 [Service]
 User=your_username
+
 WorkingDirectory=/home/your_username/env/cc
+
 ExecStart=/home/your_username/env/cc/.venv/bin/python image_deduplicator.py
+
 Restart=on-failure
 
 [Install]
