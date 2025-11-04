@@ -73,21 +73,16 @@ a、创建自启动文件(image-deduplicator.service)
 
 vi ~/image-deduplicator.service
 
-b、写入下面的代码(根据ubuntu实际用户名修改下面三处绿色代码)
+b、写入下面的代码(根据ubuntu实际用户名修改下面三处your_username)
 
 [Unit]
 Description=Image Deduplicator Service
 After=network.target
 
 [Service]
-# 使用您的实际用户名
 User=your_username
-# 脚本的实际工作目录
 WorkingDirectory=/home/your_username/env/cc
-# 运行的命令
-# 注意：这里直接使用虚拟环境的完整路径来运行 python，避免使用 source
 ExecStart=/home/your_username/env/cc/.venv/bin/python image_deduplicator.py
-# 重启策略，如果脚本退出，系统会尝试重启它
 Restart=on-failure
 
 [Install]
